@@ -12,6 +12,7 @@
     "license": "SEE LICENSE IN <your-license-filename>",
     "repository": "<fill-your-repository-here>",
     "dependencies": {
+        "nativescript-swipe-card": "^1.0.8",
         "nativescript-theme-core": "~1.0.4",
         "tns-core-modules": "~5.1.0"
     },

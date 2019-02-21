@@ -1,12 +1,22 @@
 <Page class="page"
     navigatingTo="onNavigatingTo"  
+    xmlns:customControls="nativescript-swipe-card"
     xmlns="http://schemas.nativescript.org/tns.xsd">
 
     <ActionBar class="action-bar">
         <Label class="action-bar-title" text="Home"></Label>
     </ActionBar>
 
-    <GridLayout>
-        <!-- Add your page content here -->
-    </GridLayout>
+    <StackLayout>
+        <customControls:SwipeCard id="swipe" 
+                                  height="90%"
+                                  width="80%" 
+                                  items="{{ stackCards }}" 
+                                  cardHeight="60" 
+                                  cardWidth="70"
+                                  isRandomColor="1"
+                                  cardBorderRadius="20"
+                                  cardBorderWidth="2"
+                                  />
+  </StackLayout>
 </Page>

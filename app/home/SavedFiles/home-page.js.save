@@ -4,11 +4,11 @@ a code-behind file. The code-behind is a great place to place your view
 logic, and to set up your page’s data binding.
 */
 
-const HomeViewModel = require("./home-view-model");
+const home_view_model = require("./home-view-model");
 
 function onNavigatingTo(args) {
     const page = args.object;
-    page.bindingContext = new HomeViewModel();
+    page.bindingContext = new home_view_model.HomeViewModel();
 }
 
 exports.onNavigatingTo = onNavigatingTo;
