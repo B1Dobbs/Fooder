@@ -15,7 +15,7 @@
                 width="100%"
                 cardHeight="90" 
                 cardWidth="80"
-                items="{{ petCards }}" 
+                items="{{ foodCards }}" 
                 isRandomColor="2"
                 cardBorderRadius="7"
                 cardBorderWidth="0"  
