@@ -1,22 +1,26 @@
-<Page class="page"
-    navigatingTo="onNavigatingTo"  
-    xmlns:customControls="nativescript-swipe-card"
-    xmlns="http://schemas.nativescript.org/tns.xsd">
-
-    <ActionBar class="action-bar">
-        <Label class="action-bar-title" text="Home"></Label>
-    </ActionBar>
-
-    <StackLayout>
-        <customControls:SwipeCard id="swipe" 
-                                  height="90%"
-                                  width="80%" 
-                                  items="{{ stackCards }}" 
-                                  cardHeight="60" 
-                                  cardWidth="70"
-                                  isRandomColor="1"
-                                  cardBorderRadius="20"
-                                  cardBorderWidth="2"
-                                  />
-  </StackLayout>
+<Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" xmlns:SwipeCard="nativescript-swipe-card">    
+    <Page.actionBar>
+        <ActionBar title="Fooder"><!--{{ 'Matches in ' + pet.zip }} -->
+        </ActionBar>
+    </Page.actionBar>
+    <StackLayout>  
+         
+           <!-- <StackLayout height="20%" orientation="horizontal" class="innerCardStyle" >
+                <image src="{{ pet.photo }}" class="clip-circle" />
+                <Label class="quicksandBold" text="{{ pet.name }}"></Label>
+            </StackLayout> -->
+        
+        <SwipeCard:SwipeCard id="swipe" 
+                height="80%"
+                width="100%"
+                cardHeight="90" 
+                cardWidth="80"
+                items="{{ petCards }}" 
+                isRandomColor="2"
+                cardBorderRadius="7"
+                cardBorderWidth="0"  
+                                            
+            />
+            <Label class="quicksandBold" text="Label"></Label>
+    </StackLayout>
 </Page>
