@@ -8,15 +8,15 @@
             </StackLayout>
         </ActionBar>
     </Page.actionBar>
-    <StackLayout>  
-         
-           <!-- <StackLayout height="20%" orientation="horizontal" class="innerCardStyle" >
-                <image src="{{ pet.photo }}" class="clip-circle" />
-                <Label class="quicksandBold" text="{{ pet.name }}"></Label>
-            </StackLayout> -->
-        <GridLayout rows="*">
+
+    <StackLayout>   
+        <GridLayout rows="*,80" columns="*,*,*,*">
+            <StackLayout class="bottom-card-border" row="0" colSpan="4" col="0">
+                <Label class="bottom-card" text="No more resturants" textWrap="true" />
+                <Image src="~/images/gray-refresh.png" class="action-button"></Image>
+            </StackLayout>
             <SwipeCard:SwipeCard id="swipe" 
-                    height="100%"
+                    height="90%"
                     width="100%"
                     cardHeight="90" 
                     cardWidth="98"
@@ -24,8 +24,13 @@
                     isRandomColor="2"
                     cardBorderRadius="7"
                     cardBorderWidth="0" 
-                    row="0"                             
-                />
+                    row="0"  
+                    colSpan="4"
+                    col="0"                           
+            />
+            <Image src="~/images/red-ex.png" id="exButton" onTap="swipeButtons" class="action-button" row="1" col="1" ></Image>
+            <Image src="~/images/blue-heart-2.png" id="heartButton" onTap="swipeButtons" class="action-button" row="1" col="2" ></Image>
         </GridLayout>
     </StackLayout>
+
 </Page>

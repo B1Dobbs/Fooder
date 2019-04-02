@@ -110,14 +110,18 @@ ActionBar {
     font-family: "Quicksand-Bold";
     font-size: 15;
     margin: 0;
+    padding: 2;
+    padding-right: 5;
     padding-left: 5;
     color: gray;
 }
 
 .starImage {
     background-color: orange;
-    width: 79;
+    width: 78;
     height: 20;
+    border-radius: 0.05px;
+    /* background-image: linear-gradient(to right, orange 50%, white 50%); */
 }
 
 .distance-label {
@@ -126,5 +130,28 @@ ActionBar {
     margin: 0;
     padding-left: 115;
     color: gray;
+}
+
+.action-button {
+    width: 400;
+    height: 50;
+}
+
+.bottom-card {
+    font-family: "Malvie";/*"KaushanScript-Regular"; */
+    font-size: 35;
+    color: rgb(145, 142, 142); 
+    text-align: center;
+    padding-top: 50;
+    vertical-align: middle;
+}
+
+.bottom-card-border {
+    border-radius: 7px;
+    border-color: rgb(168, 167, 167); 
+    border-width: 3px;
+    border-style: dashed;
+    height: 70%;
+    width: 80%;
 }
 

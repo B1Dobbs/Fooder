@@ -1,5 +1,5 @@
 const topmost = require("ui/frame").topmost;
-var SwipeEvent = require("nativescript-swipe-card");
+var SwipeEvent = require("nativescript-swipe-card").Myplugin;
 var HomeViewModel = require("./home-view-model");
 var StackLayout = require("ui/layouts/stack-layout").StackLayout;
 var GridLayout = require("ui/layouts/grid-layout").GridLayout;
@@ -9,12 +9,26 @@ const AbsoluteLayout = require("tns-core-modules/ui/layouts/absolute-layout").Ab
 var Label = require("tns-core-modules/ui/label").Label;
 var Image = require("tns-core-modules/ui/image").Image;
 
+var currIndex = 0;
+
 
 exports.onNavigatingTo = function(args) {
   const page = args.object;
   page.bindingContext = new HomeViewModel(page.navigationContext);
   const binding = page.bindingContext;
   exports.loadTestCards(page);
+  let swipeCard = page.getViewById("swipe");
+  swipeCard.on("swipeEvent", (SwipeEvent) => {
+      if (args.direction === 1) {
+          //right 
+          currIndex--;
+          console.log('Swiped to right');
+      } else {
+          //left
+          currIndex--;
+          console.log('Swiped to left');
+      }
+  });
   //exports.getMatches(page);
 };
 
@@ -49,6 +63,10 @@ exports.getMatches = function(page) {
         infoStack2.orientation = "horizontal";
         var starLabel = new Label();
         starLabel.text = "3.5"; //rating
+        var starRatio = exports.getStarRatio(starLabel.text);
+
+
+
         starLabel.class = "info-label";
         var starImage = new Image();
         starImage.src = "~/images/stars2.png";
@@ -90,12 +108,43 @@ function handleErrors(response) {
   return response;
 }
 
+exports.swipeButtons = function(args){
+  console.log("Swipe action");
+  var card = args.object.page.getViewById("swipe").items[currIndex];
+  if(currIndex >= 0){
+    currIndex--;
+    if(args.object.id == "exButton"){
+        card.animate({
+          translate: { x: -500, y: 0},
+          duration: 1000
+      });
+      console.log("Animate exButton: " + card);
+    }else if(args.object.id == "heartButton"){
+      console.log("Animate heartButton" + card);
+      card.animate({
+          translate: { x: 500, y: 0},
+          duration: 1000
+      });
+    }
+  }
+  console.log("Current Index:" + currIndex)
+}
+
+exports.getStarRatio = function(text){
+
+  var starCount = parseFloat(text);
+  var percent = ((starCount * 100) / 5) + 1;
+  return "linear-gradient(to right, orange " + percent + "%, #d2d2d9 " + percent + "%)";
+
+}
+
 exports.loadTestCards = function(page){
             
   var cards = [];
   cards.push(exports.addMcDonalds());
   cards.push(exports.addJasonsDeli());
   page.bindingContext.foodCards = cards;
+  currIndex = cards.length - 1;
 }
 
 exports.addMcDonalds = function(args){
@@ -113,11 +162,13 @@ exports.addMcDonalds = function(args){
   infoStack.orientation = "horizontal";
   infoStack2.orientation = "horizontal";
   var starLabel = new Label();
-  starLabel.text = "3.5";
+  starLabel.text = "1.5";
   starLabel.class = "info-label";
   var starImage = new Image();
   starImage.src = "~/images/stars2.png";
   starImage.class = "starImage";
+  starImage.backgroundImage = exports.getStarRatio(starLabel.text);
+
   var descriptionLabel = new Label();
   descriptionLabel.text = "Fast food";
   descriptionLabel.class = "info-label";
@@ -161,11 +212,13 @@ exports.addJasonsDeli = function(args){
   infoStack.orientation = "horizontal";
   infoStack2.orientation = "horizontal";
   var starLabel = new Label();
-  starLabel.text = "4.5";
+  starLabel.text = "3.5";
   starLabel.class = "info-label";
   var starImage = new Image();
   starImage.src = "~/images/stars2.png";
   starImage.class = "starImage";
+  starImage.backgroundImage = exports.getStarRatio(starLabel.text);;
+
   var descriptionLabel = new Label();
   descriptionLabel.text = "Deli";
   descriptionLabel.class = "info-label";
