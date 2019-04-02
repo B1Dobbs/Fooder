@@ -30,7 +30,7 @@ Label {
 }
 
 Image {
-    height: 50%;
+    height: 70%;
     width: 100%;
     border-radius: 5px;
 }
@@ -41,17 +41,18 @@ Button {
     background-color: #f07da8;
     color: white;
 }
+
 ActionBar {
     color: white;
-    background-color: #9b64f8;
+    background-color: white;
 }
 
 .cardStyle {
     background-color:white;
-    border-color:rgb(136, 136, 136);
+    border-color: lightgray;
     border-radius: 7px;
     border-width: 2px;
-    height: 80%;
+    height: 80%;  
 }
 
 .innerCardStyle {
@@ -81,5 +82,49 @@ ActionBar {
 
 .cardStack {
     margin-top:0;
+}
+
+.action-bar-logo{
+    width: 175;
+    height: 40;
+    align-content: center;
+    margin-left: 55;
+    margin-right: 15;
+}
+
+.action-bar-gear{
+    color: gray;
+    width: 175;
+    height: 40;
+}
+
+.nameLabel {
+    font-family: "Quicksand-Bold";
+    font-size: 25;
+    margin: 0;
+    padding: 0;
+    padding-left: 5;
+}
+
+.info-label {
+    font-family: "Quicksand-Bold";
+    font-size: 15;
+    margin: 0;
+    padding-left: 5;
+    color: gray;
+}
+
+.starImage {
+    background-color: orange;
+    width: 79;
+    height: 20;
+}
+
+.distance-label {
+    font-family: "Quicksand-Bold";
+    font-size: 15;
+    margin: 0;
+    padding-left: 115;
+    color: gray;
 }
 

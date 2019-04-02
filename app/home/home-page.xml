@@ -1,6 +1,11 @@
 <Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" xmlns:SwipeCard="nativescript-swipe-card">    
     <Page.actionBar>
-        <ActionBar title="Fooder"><!--{{ 'Matches in ' + pet.zip }} -->
+        <ActionBar title="Fooder">
+            <StackLayout orientation="horizontal">
+                <Image src="~/images/FooderLogo.png" class="action-bar-logo" horizontalAlignment="center" ></Image>
+                <ActionItem icon="~/images/settings.png" android.systemIcon="ic_menu_add" class="actionItem"></ActionItem>
+                <Image src="~/images/settings.png" class="action-bar-gear" horizontalAlignment="right" ></Image>
+            </StackLayout>
         </ActionBar>
     </Page.actionBar>
     <StackLayout>  
@@ -9,18 +14,18 @@
                 <image src="{{ pet.photo }}" class="clip-circle" />
                 <Label class="quicksandBold" text="{{ pet.name }}"></Label>
             </StackLayout> -->
-        
-        <SwipeCard:SwipeCard id="swipe" 
-                height="80%"
-                width="100%"
-                cardHeight="90" 
-                cardWidth="80"
-                items="{{ foodCards }}" 
-                isRandomColor="2"
-                cardBorderRadius="7"
-                cardBorderWidth="0"  
-                                            
-            />
-            <Label class="quicksandBold" text="Label"></Label>
+        <GridLayout rows="*">
+            <SwipeCard:SwipeCard id="swipe" 
+                    height="100%"
+                    width="100%"
+                    cardHeight="90" 
+                    cardWidth="98"
+                    items="{{ foodCards }}" 
+                    isRandomColor="2"
+                    cardBorderRadius="7"
+                    cardBorderWidth="0" 
+                    row="0"                             
+                />
+        </GridLayout>
     </StackLayout>
 </Page>
