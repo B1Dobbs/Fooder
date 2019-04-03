@@ -1,4 +1,5 @@
-const topmost = require("ui/frame").topmost;
+const topmost = require("ui/frame").frame;
+const frame = require('tns-core-modules/ui/frame');
 var SwipeEvent = require("nativescript-swipe-card");
 var HomeViewModel = require("./home-view-model");
 var StackLayout = require("ui/layouts/stack-layout").StackLayout;
@@ -75,3 +76,12 @@ function handleErrors(response) {
   }
   return response;
 }
+
+function gotoSettings(args) {
+  frame.topmost().navigate( {
+      moduleName: 'settings/settings-page',
+      context: {}
+  } );
+}
+
+exports.gotoSettings = gotoSettings;

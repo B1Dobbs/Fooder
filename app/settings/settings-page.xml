@@ -1,0 +1,29 @@
+<Page
+    class="settingsPage"
+    navigatingTo="onNavigatingTo"  
+    xmlns:CheckBox="nativescript-checkbox"
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar 
+        title="Settings">
+    </ActionBar>
+
+    <StackLayout>
+     <StackLayout orientation="horizontal">
+        <Label color="black" text="{{ 'Distance - ' + distanceVal }}"/>
+     </StackLayout>
+        <Slider row="1" col="1" value="{{ distanceSliderValue }}"  minValue="{{ distanceFirstMinValue }}" maxValue="{{ distanceFirstMaxValue }}"/>
+    <StackLayout orientation="horizontal">
+        <Label color="black" text="{{ 'Price Range - ' + currentPrice }}"/>
+    </StackLayout>
+        <Slider row="1" col="1" value="{{ priceSliderValue }}"  minValue="{{ priceFirstMinValue }}" maxValue="{{ priceFirstMaxValue }}"/>
+        <Label color="black" text="Categories" fontSize="20"/>
+        <CheckBox:CheckBox text="All" checked="false" />
+        <CheckBox:CheckBox text="American" checked="false" />
+        <CheckBox:CheckBox text="Fast Food" checked="false" />
+        <CheckBox:CheckBox text="Italian" checked="false" />
+        <CheckBox:CheckBox text="Asian" checked="false" />
+        <CheckBox:CheckBox text="Mexican" checked="false" />
+        <CheckBox:CheckBox text="Cafes" checked="false" />
+    </StackLayout>
+</Page>

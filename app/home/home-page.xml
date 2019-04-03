@@ -1,6 +1,8 @@
 <Page class="page" xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" xmlns:SwipeCard="nativescript-swipe-card">    
     <Page.actionBar>
         <ActionBar title="Fooder"><!--{{ 'Matches in ' + pet.zip }} -->
+        <ActionItem icon="res://settings" tap="gotoSettings"
+                style="height: 24px" />
         </ActionBar>
     </Page.actionBar>
     <StackLayout>  
