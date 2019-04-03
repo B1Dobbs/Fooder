@@ -1,5 +1,5 @@
 const topmost = require("ui/frame").topmost;
-var SwipeEvent = require("nativescript-swipe-card").Myplugin;
+var SwipeEvent = require("nativescript-swipe-card");
 var HomeViewModel = require("./home-view-model");
 var StackLayout = require("ui/layouts/stack-layout").StackLayout;
 var GridLayout = require("ui/layouts/grid-layout").GridLayout;
@@ -8,14 +8,15 @@ var Button = require("ui/button").Button;
 const AbsoluteLayout = require("tns-core-modules/ui/layouts/absolute-layout").AbsoluteLayout;
 var Label = require("tns-core-modules/ui/label").Label;
 var Image = require("tns-core-modules/ui/image").Image;
+var LayoutBase = require("tns-core-modules/ui/layouts/layout-base");
 
 var currIndex = 0;
+var cards = [];
 
 
 exports.onNavigatingTo = function(args) {
   const page = args.object;
   page.bindingContext = new HomeViewModel(page.navigationContext);
-  const binding = page.bindingContext;
   exports.loadTestCards(page);
   let swipeCard = page.getViewById("swipe");
   swipeCard.on("swipeEvent", (SwipeEvent) => {
@@ -33,8 +34,6 @@ exports.onNavigatingTo = function(args) {
 };
 
 exports.getMatches = function(page) {
-            
-  var cards = [];
   
   //Google Places API request here:
   return fetch("url string goes here")
@@ -64,8 +63,6 @@ exports.getMatches = function(page) {
         var starLabel = new Label();
         starLabel.text = "3.5"; //rating
         var starRatio = exports.getStarRatio(starLabel.text);
-
-
 
         starLabel.class = "info-label";
         var starImage = new Image();
@@ -130,6 +127,22 @@ exports.swipeButtons = function(args){
   console.log("Current Index:" + currIndex)
 }
 
+exports.refreshCards = function(args){
+  const page = args.object.page;
+  var swipeCards = page.getViewById("swipe");
+  //swipeCards.items[0].unloadView();
+  for(var count = 0; count < cards.length; count++){
+    console.log("X:" + swipeCards.items[count].originX);
+    console.log("Y:" + swipeCards.items[count].originY);
+    swipeCards.items[count].animate({
+        translate: { x: 0, y: 0},
+        duration: 500
+    });
+  }
+  console.log(page.bindingContext.foodCards);
+  currIndex = cards.length - 1;
+}
+
 exports.getStarRatio = function(text){
 
   var starCount = parseFloat(text);
@@ -139,8 +152,6 @@ exports.getStarRatio = function(text){
 }
 
 exports.loadTestCards = function(page){
-            
-  var cards = [];
   cards.push(exports.addMcDonalds());
   cards.push(exports.addJasonsDeli());
   page.bindingContext.foodCards = cards;

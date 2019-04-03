@@ -12,8 +12,8 @@
     <StackLayout>   
         <GridLayout rows="*,80" columns="*,*,*,*">
             <StackLayout class="bottom-card-border" row="0" colSpan="4" col="0">
-                <Label class="bottom-card" text="No more resturants" textWrap="true" />
-                <Image src="~/images/gray-refresh.png" class="action-button"></Image>
+                <Label class="bottom-card" text="No more restaurants" textWrap="true" />
+                <Image src="~/images/gray-refresh.png" class="action-button" onTap="refreshCards"></Image>
             </StackLayout>
             <SwipeCard:SwipeCard id="swipe" 
                     height="90%"
