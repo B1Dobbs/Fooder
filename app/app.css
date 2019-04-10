@@ -84,6 +84,13 @@ ActionBar {
     margin-top:0;
 }
 
+.settingsPage {
+
+background-color: white;
+
+.mySwitch {
+}
+
 .action-bar-logo{
     width: 175;
     height: 40;

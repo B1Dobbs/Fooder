@@ -3,7 +3,7 @@
         <ActionBar title="Fooder">
             <StackLayout orientation="horizontal">
                 <Image src="~/images/FooderLogo.png" class="action-bar-logo" horizontalAlignment="center" ></Image>
-                <ActionItem icon="~/images/settings.png" android.systemIcon="ic_menu_add" class="actionItem"></ActionItem>
+                <ActionItem icon="~/images/settings.png" tap="gotoSettings" android.systemIcon="ic_menu_add" class="actionItem"></ActionItem>
                 <Image src="~/images/settings.png" class="action-bar-gear" horizontalAlignment="right" ></Image>
             </StackLayout>
         </ActionBar>
