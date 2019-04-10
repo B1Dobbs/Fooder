@@ -85,10 +85,11 @@ ActionBar {
 }
 
 .settingsPage {
-
-background-color: white;
+    background-color: white;
+}
 
 .mySwitch {
+
 }
 
 .action-bar-logo{
