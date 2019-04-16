@@ -108,6 +108,7 @@ function handleErrors(response) {
 
 
 function gotoSettings(args) {
+  console.log("Go to settings");
  frame.topmost().navigate( {
       moduleName: 'settings/settings-page',
   } );
@@ -133,7 +134,15 @@ exports.swipeButtons = function(args){
       });
     }
   }
-  console.log("Current Index:" + currIndex)
+  console.log("Current Index:" + currIndex);
+}
+
+exports.displayCard = function(args){
+  console.log("Current Index: " + currIndex);
+  if(currIndex == -1){
+    exports.refreshCards(args);
+    currIndex == cards.length - 1;
+  }
 }
 
 exports.refreshCards = function(args){

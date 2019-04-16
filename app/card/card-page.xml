@@ -3,35 +3,18 @@
         <ActionBar title="Fooder">
             <StackLayout orientation="horizontal">
                 <Image src="~/images/FooderLogo.png" class="action-bar-logo" horizontalAlignment="center" ></Image>
-                <ActionItem icon="~/images/settings.png" tap="gotoSettings" android.systemIcon="ic_menu_add" class="actionItem"></ActionItem>
-                <Image src="~/images/settings.png" class="action-bar-gear" horizontalAlignment="right" ></Image>
             </StackLayout>
         </ActionBar>
     </Page.actionBar>
 
     <StackLayout>   
         <GridLayout rows="*,80" columns="*,*,*,*">
-            <StackLayout class="bottom-card-border" row="0" colSpan="4" col="0">
+            <StackLayout class="containter" row="0" colSpan="4" col="0">
                 <Label class="bottom-card" text="No more restaurants" textWrap="true" />
                 <Image src="~/images/gray-refresh.png" class="action-button" onTap="refreshCards"></Image>
             </StackLayout>
-            <SwipeCard:SwipeCard id="swipe" 
-                    height="90%"
-                    width="100%"
-                    cardHeight="90" 
-                    cardWidth="98"
-                    items="{{ foodCards }}" 
-                    isRandomColor="2"
-                    cardBorderRadius="7"
-                    cardBorderWidth="0" 
-                    row="0"  
-                    colSpan="4"
-                    col="0"
-                    onTap="displayCard"                           
-            />
             <Image src="~/images/red-ex.png" id="exButton" onTap="swipeButtons" class="action-button" row="1" col="1" ></Image>
             <Image src="~/images/blue-heart-2.png" id="heartButton" onTap="swipeButtons" class="action-button" row="1" col="2" ></Image>
         </GridLayout>
     </StackLayout>
-
 </Page>
